@@ -1,0 +1,5 @@
+username = "heroku"
+password = "97aa100aa71b190805c41b70bed0e20b"
+database = "troup.mongohq.com:10097/app22192444"
+port = "5000"
+collections = "charlottelabauthentication,reservations,feedBack,workstations"

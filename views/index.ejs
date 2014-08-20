@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Charlotte Lab</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom Theme CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+	<!-- Login Theme CSS -->
+    <link href="css/login.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            
+			<div class="navbar-header page-scroll">
+                
+                <a class="navbar-brand" href="#">
+                    <i class="fa fa-play-circle"></i>  <span class="light">CLT Lab</span>
+                </a>
+				
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+					<a href="#"><i class="fa fa-bars"></i></a>
+                </button>
+            </div>
+
+            
+            <div>
+            <div id="myNav" class="collapse navbar-collapse navbar-right navbar-main-collapse">
+					<ul class="nav navbar-nav ulClass">
+						
+						 <!-- '.ulClass li:nth-child(1)'-->
+                        <li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						
+						<!-- '.ulClass li:nth-child(2)'-->
+                        <li class="page-scroll" style="text-align:left">
+							<a href="/" ><center><i class="glyphicon glyphicon-home" ></i></center></a>
+						</li>
+                        
+						 <!-- '.ulClass li:nth-child(3)' (originally hidden)  -->
+                        <li class="page-scroll hidden" style="text-align:left">
+							<a class="clean" id="aReservation" href="#reservation" >
+                            <center><i class="glyphicon glyphicon-th-list" ></i></center></a>
+						</li>
+						
+						<!-- '.ulClass li:nth-child(4)'-->
+                        <li class="page-scroll hidden" style="text-align:left">									
+							<a id="feedback" data-toggle="modal" data-target="#myModal"><center><i class="glyphicon glyphicon-envelope" ></i></center></a>
+						</li>
+						
+						<!-- '.ulClass li:nth-child(5)'-->
+                        <li class="page-scroll hidden" style="text-align:left">
+							<a class="clean" id="aInventoryControl" href="#inventoryControl"><center><i class="fa fa-building-o" ></i></center></a>
+						</li> 
+						
+						<!-- '.ulClass li:nth-child(6)'-->
+                        <li class="page-scroll hidden" style="text-align:left">
+							<a id="aAbout" data-toggle="modal" data-target="#aboutModal"><center><i class="glyphicon glyphicon-info-sign" ></i></center></a>
+						</li>
+						
+						<!--.ulClass li:nth-child(7)-->
+                        <li class="page-scroll hidden" style="text-align:left">
+							<a href="#"><center><i class="glyphicon glyphicon-user"></i>Welcome</center></a>
+						</li>
+						
+						<!-- '.ulClass li:nth-child(8)'-->
+                        <li class="page-scroll hidden" style="text-align:left">
+							<a id="logout" href="/"><center><i class="glyphicon glyphicon-log-out"></i></center></a>
+						</li>
+                        
+                         <!-- '.ulClass li:nth-child(9)'-->
+						<li class="page-scroll clean" id="adminGlyphicon" style="text-align:left;">
+
+						</li>
+					</ul>	
+				</div>
+			</div>
+
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+
+	<!--Login & Registration Form-->
+    <section id="loginform" class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+					<div class="col-xs-10 col-sm-6 col-md-4 col-lg-4 col-sm-offset-3 col-xs-offset-1 col-md-offset-4">
+						<br><br><br>
+						<!--Existing User Login Form-->
+                        <div id="signIN" class="account-wall visible">
+							
+							<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+							<!--Login Form-->
+                            <form class="form-signin">
+								
+								<!--#Login-empID: index.js-->
+                                <input type="text" class="form-control" id = "Login-empID" placeholder="TCS ID" required autofocus>
+								
+								<!--#Login-Password: index.js-->
+                                <input type="password" class="form-control" id = "Login-Password" placeholder="Password" required>
+								
+                                <!--User Login Success Button-->
+                                <button type="submit" class="btn btn-lg btn-success btn-block " data-loading-text="Signing In..." type = "button" id="sendLogin">Sign In</button>
+							</form>
+                            
+							<!--Create Account-->
+                            <a href="#crate" class="text-center new-account"> Don't have account? <u>Create</u> </a>
+						</div>
+						
+						<!--New Users Create Account-->
+						<div id="signUP" class="account-wall hidden">
+							
+							<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+							<!--Registration Form-->
+                            <form class="form-signin">
+								<input type="text" class="form-control" id = "Login-empID-signUP" placeholder="TCS ID" required autofocus>
+								<input type="text" class="form-control" id = "Login-name-SignUP" placeholder="Full Name" required >
+								<input type="text" class="form-control" id = "Login-email-SignUP" placeholder="Email" required >
+								
+								<input type="password" class="form-control" id = "Login-Password-SignUP" placeholder="Password" required>
+								<input type="password" class="form-control" id = "Login-ConfirmPassword-SignUP" placeholder=" Confirm Password" required>
+								<button class="btn btn-lg btn-success btn-block " data-loading-text="Signing Up..." type = "button" id="sendSignUP">Sign Up</button>							
+							</form>
+                            
+							<!--Existing Users Sign In-->
+                            <a href="#sign" class="text-center sign-in">Sign In </a>
+						</div>
+						
+					</div>
+					
+  
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+	
+    <!--Workstation List (at the top of page)-->
+    <section id="workStationList" class="hidden">
+        <div class="intro-body">
+            <div class="container" >
+				<div class = "page-header">
+						<h3>Pick Your Workstation To Reserve</h3>
+				</div>
+                <div class="row">
+					<input type="hidden" id="testinput" placeholder="text" value="test"></input>
+					<form id="workstationform" name="workstationform" >
+						<div class="btn-group page-scroll visible-md">
+							<div class="col-md-12 col-md-offset-0" style="padding-bottom:50px">	
+								<div class="col-md-2 col-md-offset-1">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+											<a href="#timeslot">
+											<button type="button" id="workstation5" value="5" class="btn WButton btn-default btn-md clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 5</button></i>
+											</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation6" value="6" class="btn btn-default btn-md clean WButton " onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 6</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation7" value="7" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 7</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+										<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+											<button type="button" id="workstation8" value="8" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 8</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation9" value="9" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 9</button></i>
+										</a>
+								</div>
+							</div>
+							<div class="col-md-12 col-md-offset-0">	
+								<div class="col-md-2 col-md-offset-1">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation10" value="10" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 10</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation11" value="11" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 11</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+								<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+									<a href="#timeslot">
+									<button type="button" id="workstation12" value="12" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 12</button></i>
+									</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation13" value="13" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 13</button></i>
+										</a>
+								</div>
+								<div class="col-md-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation14" value="14" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 14</button></i>
+										</a>
+								</div>
+							</div>
+						</div>
+						
+						<div class="btn-group page-scroll visible-lg">
+							<div class="col-lg-12 col-lg-offset-0" style="padding-bottom:50px">	
+								<div class="col-lg-2 col-lg-offset-1">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+											<a href="#timeslot">
+											<button type="button" id="workstation25" value="5" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 5</button></i>
+											</a>
+								</div>
+								<div class="col-lg-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation26" value="6" class="btn WButton btn-default btn-md clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 6</button></i>
+										</a>
+								</div>
+								<div class="col-lg-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation27" value="7" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 7</button></i>
+										</a>
+								</div>
+								<div class="col-lg-2">
+										<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+											<button type="button" id="workstation28" value="8" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 8</button></i>
+										</a>
+								</div>
+								<div class="col-lg-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation29" value="9" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 9</button></i>
+										</a>
+								</div>
+							</div>
+							<div class="col-lg-12 col-lg-offset-0">	
+								<div class="col-lg-2 col-lg-offset-1">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation30" value="10" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 10</button></i>
+										</a>
+								</div>
+								<div class="col-lg-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation31" value="11" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 11</button></i>
+										</a>
+								</div>
+								<div class="col-lg-2">
+								<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+									<a href="#timeslot">
+									<button type="button" id="workstation32" value="12" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 12</button></i>
+									</a>
+								</div>
+								<div class="col-lg-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation33" value="13" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 13</button></i>
+										</a>
+								</div>
+								<div class="col-lg-2">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation34" value="14" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 14</button></i>
+										</a>
+								</div>
+							</div>
+						</div>
+					
+						<div class="btn-group page-scroll hidden-lg hidden-md">
+							<div class="col-md-12 col-md-offset-0" style="padding-bottom:50px">	
+								<div class="col-md-2 col-md-offset-1">
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+											<a href="#timeslot">
+											<button type="button" id="workstation15" value="5" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 5</button>
+									</i>
+											</a>
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation16" value="6" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 6</button></i>
+										</a>
+										
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation17" value="7" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 7</button></i>
+										</a>
+										
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+											<button type="button" id="workstation18" value="8" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 8</button></i>
+										</a>
+										
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation19" value="9" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 9</button></i>
+										</a>
+										
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation20" value="10" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 10</button></i>
+										</a>
+										
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation21" value="11" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 11</button></i>
+										</a>
+										
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation22" value="12" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 12</button></i>
+										</a>
+										
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation23" value="13" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 13</button></i>
+										</a>
+										
+									<i class="glyphicon glyphicon-hdd" style="font-size:2em">
+										<a href="#timeslot">
+										<button type="button" id="workstation24" value="14" class="btn btn-default btn-md WButton clean" onclick="$('#timeslot').removeClass('hidden').addClass('visible'); $('#testinput').val(this.value);">PC 14</button></i>
+										</a>
+								</div>
+							</div>
+							
+						</div>	
+					</form>
+                </div>
+            </div>
+			
+
+			
+		</div>
+	</section>
+	
+	
+	<!--Selecting Date and Time to Reserve-->
+    <section id="timeslot" class="content-section text-center hidden" style="padding-top:0px">
+		<div class = "container">
+			<div class = "row">                  
+				<div class = "col-lg-12 col-xs-12 col-sm-12 col-md-12 page-scroll">
+					<div class = "panel panel-default">
+						<div class = "panel-body">
+							<div class = "page-header">				
+								
+                                <!--Submit Date Button-->
+                                <form class="form-inline" role="form">						
+									<span style="color:red" id="errorCalendar"></span>
+                                    </br>
+									<input type="text" class="form-control" id="datepicker2" placeholder="pick your date">
+									<button type="button" id="SubmitForTimeslot" class="btn btn-default" data-loading-text="Wait..." >Submit</button>
+								</form>
+                                
+								<div id="machineNumber"> 
+                                <!--Available Times for Workstation __ (code in index.js: $('#machineNumber'))-->
+                                </div>
+                                
+                                 <!--Selected Time is shown here-->
+								<center style="color:black; font-size:150%">Selected Time:</br>
+									<span style="color:green; font-size:150%" id="timeSpan"></span>
+								</center>
+							</div>
+							
+							<div id='AvailablityTable'>
+							<!--Availability Table (code in index.js: $('#AvailablityTable')-->
+							</div>
+							
+							<a href="#download">
+								<button type="button" id="submitbutton123" class="btn btn-default btn-md hidden" >Done</button></td>
+								<button type="button" id="submitbuttonReset" class="btn btn-default btn-md hidden" onclick="$('#download').removeClass('visible').addClass('hidden'); ">Reset</button></td>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+			
+	<!--Reservation Button with Reason for reserving the PC-->
+    <section id="download" class="content-section text-center hidden" style="padding-top:0px">
+		<center>		 
+		 <div class="container">
+			 <div class="col-lg-8 col-lg-offset-2">
+				<div class="panel panel-primary">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Why are you Reserving this PC?</div>
+					<!-- Table -->
+					<div class="input-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<textarea id="reserveComment" rows="6" class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="" style="width:100%;"></textarea>
+					</div>
+				</div>
+				<p></p>
+				<!--Reserve Button-->
+                <form id="reserve" name="reserve" >
+					<button type="submit" id="reservebutton" value="reserve1" class="btn btn-default btn-lg" data-loading-text="Wait..." >Reserve</button>
+				</form>
+				</div>
+		 </div>
+			</center>	 
+	</section>
+	
+	<!-- My Reservations section: reservation section: 'hidden' or 'visible'-->
+    <section id="reservation" class="content-section text-center hidden" style="padding-top:0px">
+		
+			<div class = "container">
+                    <div class = "row">                  
+                        <div class = "col-lg-12  page-scroll">
+                            <div class = "panel panel-default">
+                                <div class = "panel-body">
+									<p><font color="black">
+									<div class="table-responsive">
+                                    </div>										
+										<center><h3>My Reservations</h3></center>
+										<div id="myReservation">
+                                        
+                                        <!--JavaScript generated table in here-->
+					
+										</div>
+											
+										<!--</font></p>-->
+									</div>								                                  
+                            </div>
+						</div>
+                </div>
+            </div>
+
+    </section>
+	
+	<!--Inventory Section, Finding Software & Adding Software-->
+    <section id="inventoryControl" class="container content-section text-center hidden" style="padding-top:0px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:black">
+				<div class = "panel panel-default">
+					<div class = "panel-body">
+						<!--Finding Software with AutoComplete-->
+                        <form class="form-inline" role="form">
+                                <div class="form-group">
+									Please write the name of the Software you wish to find: <br><br>
+									<input type="text" class="form-control" id="searchAutoComplete" placeholder="Find">
+									<button type="submit" id="serachSubmit" class="btn btn-default">Submit</button>
+								</div>
+						</form>
+						<span id="invAlertSpan" style="color:red"></span><br>
+						<br>
+                        <br>
+                      
+					 <div class="form-group">
+								<!--Add Software to Selected Machines-->
+                                <form id="inventoryAdd" class="form-inline" >
+								Please write the name of the Software you wish to Add: <br><br>
+								<input type="text" name="itemName" id="Software" class="form-control" placeholder="Software" ></input><br><br>
+									<div class="form-group" id="checkBoxID">
+										<center>		
+									Select Your Machines:
+								<table class="checkBoxClass table">
+									<tr><td><input type="checkbox" name="Machine" class="ws" value="5"> Workstation 5 </td>
+									<td><input type="checkbox" name="Machine" class="ws" value="6"> Workstation 6</td></tr>
+									<tr><td><input type="checkbox" name="Machine" class="ws" value="7"> Workstation 7</td>
+									<td><input type="checkbox" name="Machine" class="ws" value="8"> Workstation 8</td></tr>
+									<tr><td><input type="checkbox" name="Machine" class="ws" value="9"> Workstation 9</td>
+									<td><input type="checkbox" name="Machine" class="ws" value="10"> Workstation 10</td></tr>
+									<tr><td><input type="checkbox" name="Machine" class="ws" value="11"> Workstation 11</td>
+									<td><input type="checkbox" name="Machine" class="ws" value="12"> Workstation 12</td></tr>
+									<tr><td><input type="checkbox" name="Machine" class="ws" value="13"> Workstation 13</td>
+									<td><input type="checkbox" name="Machine" class="ws" value="14"> Workstation 14</td></tr>
+								</table>
+											
+										</center>
+									</div> 
+						</form>
+						</div>
+                        <!--Add Inventory Button-->
+						<button  id="siriachaSubmit" style="" class="btn btn-default">Add to Inventory</button> 
+					</div>
+				</div>
+            </div>
+        </div>
+    </section>
+    
+    <!--User Reports Displayed Here-->
+    <section id="reports" class="content-section text-center hidden" style="padding-top:0px">
+			<div class = "container">
+                    <div class = "row">                  
+                        <div class = "col-lg-12  page-scroll">
+                            <div class = "panel panel-default">
+                                <div class = "panel-body">
+									<p><font color="black">
+									<div class="table-responsive">
+                                    </div>										
+										<center>
+										
+										<h3>User Reports</h3></center>
+										<!--<form id="filterReports" class="form-inline">
+										Filter By: <select id="filterSelect"><option value="name">Name</option><option value="empID">Employee ID</option><option value="workstation">Workstation</option><!--<option value="from">From Date & Time</option><option value="to">To Date & Time</option><option value="reserved">Date Reserved</option>--<option value="reason">Reason</option></select> <input type="text" name="filter" id="filter"></input> <button type="submit" id="filterSubmit" class="btn btn-default">Submit</button>
+										</form>-->
+										<form id="filterReports" class="form-inline">
+										<div id="userReports">
+                                        
+                                        
+                                        
+                                        <!--JavaScript generated table in here-->
+										
+										</div>
+										</form>
+											
+										<!--</font></p>-->
+									</div>								                                  
+                            </div>
+						</div>
+                </div>
+            </div>
+    </section>
+
+	<!-- Feedback Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form id="setNick1" class="form-horizontal" action="/feedback" method="POST">
+						<div class="modal-header">
+							<h4>TCS Lab Feedback</h4>
+						</div>
+						<div id="thank"></div>
+						<div class="modal-body" id="feedForm">     
+							<div class="form-group">
+								<center><b>Please Select Your Reason For Giving Feedback:</b>
+								<select>
+								  <option value="General">General Feedback</option>
+								  <option value="Technical">Technical Question/Problem</option>
+								  <option value="Device">Device Support</option>
+								  <option value="Bug">Bug Report</option>
+								</select>
+								</center>
+							</div>						
+							<div class="form-group">
+								<label for="contact-msg" class="col-sm-2 control-label">Message:</label>
+								<div class="col-sm-10">
+									<textarea name="feedback" id="contact-feedback" class="form-control" rows="8"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<a class="btn btn-default" data-dismiss="modal" id="btnClose">Close</a>    
+							<button class="btn btn-success" data-loading-text="sending..." type="button" id="sendFeedback">Send</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			  </div>
+			  <div class="modal-body">
+					<center><h3>About this webpage</h3>
+					<p>This webpage has been created using Bootstrap UI Framework, jQuery/AJAX, Express NodeJS Framework, and MongoDB for the database.</p>
+					<p>It is hosted on Heroku.</p>
+					<p>Our team had three on the backend working with NodeJS, three on the frontend working with ajax and bootstrap, and two working on documentation.</p>
+					<p>The following people were assigned to each component:
+					Frontend: Dumar Canas, Brian Ferry, Nebil Sherif
+					<p>Backend: Steven Pettit, Kevin Silliman, Yu Chen</p>
+					<p>Documentation: Josette Seitz, David Duran</p></p> </center>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+	<!-- Modal -->
+		<div class="modal fade" id="aboutPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">About Page!</h4>
+			  </div>
+			  <div class="modal-body">
+				You have successfully registered!
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		
+			<!-- Modal -->
+		<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content modal-md">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			  </div>
+			  <div class="modal-body">
+				<center><span id="alertSpan" style="font-size:120%"></span></center>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+    <!-- Core JavaScript Files -->
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	
+	<script src = "js/bootstrap.js"></script>
+
+	
+	<script	src = "js/index.js"></script>
+	
+	
+</body>
+
+</html>
